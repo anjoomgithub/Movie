@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+<br><br><br><br><br><br><br>
+<div class="container">
+    <div class="row justify-content-center">
+        {% for movie in movie_list %}
+        <div class="col-lg-4 mb-4"> <!-- Adjust the column width and add margin-bottom for spacing -->
+            <div class="card shadow" style="width: 18rem;"> <!-- Increase the card width -->
+                <img src="{{ movie.img.url }}" height="350px" class="card-img-top" alt="{{ movie.name }}"> <!-- Increase the image height -->
+                <div class="card-body">
+                    <h5 class="card-title">{{ movie.name }}</h5>
+                    <p class="card-text">{{ movie.year }}</p>
+                    <a href="{% url 'movieapp:detail' movie.id %}" class="btn btn-primary">More Details</a>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
